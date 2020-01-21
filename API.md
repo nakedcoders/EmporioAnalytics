@@ -14,7 +14,7 @@ The Emporio Analytics assignment API is organised around REST. Our API has predi
         password: String,
     }
 
-Return JSON-encoded
+<h3>Return JSON-encoded</h3>
 
     {
         token : String
@@ -29,7 +29,7 @@ Return JSON-encoded
         password: String,
     }
 
-Return JSON-encoded
+<h3>Return JSON-encoded</h3>
 
     {
         token : String
@@ -47,13 +47,13 @@ Retrieve all the makes from the inventory list
 
 <h3>GET - <span>/user/me</span></h3>  
 
+<h3>Return JSON-encoded</h3>
+
     {
       id: string,
       username: string,
       email: string,
     }
-
-description
 
 <br/>
 
