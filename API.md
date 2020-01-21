@@ -6,6 +6,11 @@ The Emporio Analytics assignment API is organised around REST. Our API has predi
 
 <br/>
 
+<h1>Authorization Header</h1>
+
+<span>To authenticate, add an Authorization header to your API request that contains an API Key.</span>
+
+
 <h3>POST - <span>/user/signup</span></h3>  
 
     {
@@ -14,8 +19,7 @@ The Emporio Analytics assignment API is organised around REST. Our API has predi
         password: String,
     }
 
-<h3>Return JSON-encoded</h3>
-
+    return JSON Data
     {
         token : String
     }
@@ -34,8 +38,6 @@ The Emporio Analytics assignment API is organised around REST. Our API has predi
     {
         token : String
     }
-
-description
 
 <br/>
 
