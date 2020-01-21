@@ -13,16 +13,13 @@ The Emporio Analytics assignment API is organised around REST. Our API has predi
 
 <h3>POST - <span>/user/signup</span></h3>  
 
+
     {
         username: String,
         email: String,
         password: String,
     }
 
-    return JSON Data
-    {
-        token : String
-    }
 
 <br/>
 
@@ -33,23 +30,15 @@ The Emporio Analytics assignment API is organised around REST. Our API has predi
         password: String,
     }
 
-<h3>Return JSON-encoded</h3>
-
-    {
-        token : String
-    }
-
 <br/>
 
 <h3>GET - <span>/user/logout</span></h3>  
 
-Retrieve all the makes from the inventory list
+Authenticated user can logout from the server 
 
 <br/>
 
 <h3>GET - <span>/user/me</span></h3>  
-
-<h3>Return JSON-encoded</h3>
 
     {
       id: string,
