@@ -1,0 +1,45 @@
+version: "2"
+services:
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+  client:
+    container_name: client
+    restart: always
+    build: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client/:/usr/src/app
+  server:
+    container_name: server
+    restart: always
+    build: ./server
+    ports:
+      - "3001:3001"
+    environment:
+      - REDIS_URL=redis://cache
+    links:
+      - mongodb
+      - redis
+    volumes:
+      - ./server/:/usr/src/app
+  mongodb:
+    image: 'mongo'
+    container_name: 'mongodb'
+    restart: always
+    environment: 
+      - MONGO_INITDB_DATABASE=Emporio
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - 27017:27017
+    volumes:
+      - ./init_admin.js:/docker-entrypoint-initdb.d/init_admin.js:ro
+      - ./data/db
+      - ./data/configdb
+
+
+      
