@@ -49,7 +49,7 @@ router.post("/login", async (req, res) => {
       }
       
       const token = await user.newAuthToken()
-
+      
       return res.status(200).json({token});
 
   } catch (error) {
