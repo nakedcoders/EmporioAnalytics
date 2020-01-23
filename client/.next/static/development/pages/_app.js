@@ -12,10 +12,6 @@
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js"));
-
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/regenerator */ "./node_modules/@babel/runtime-corejs2/regenerator/index.js"));
-
 var _axios = _interopRequireDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 
 var api = _axios["default"].create({
@@ -28,45 +24,31 @@ var api = _axios["default"].create({
 
 api.AuthorizationHeader = function (token) {
   if (token) {
-    api.interceptors.request.use(function _callee(config) {
-      return _regenerator["default"].async(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              config.headers.Authorization = "Bearer ".concat(token);
-              return _context.abrupt("return", config);
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      });
-    }, function (error) {
-      return _promise["default"].reject(error);
-    });
+    api.defaults.headers["Authorization"] = "Bearer ".concat(token);
   }
 };
 
 api.clearToken = function () {
-  api.interceptors.request.use(function _callee2(config) {
-    return _regenerator["default"].async(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            config.headers.Authorization = '';
-            return _context2.abrupt("return", config);
+  delete api.defaults.headers["Authorization"];
+}; // api.AuthorizationHeader = (token) => {
+//   if(token){
+//     api.interceptors.request.use( async (config) => {
+//         config.headers.Authorization = `Bearer ${token}`
+//         return config
+//     }, function(error) {
+//         return Promise.reject(error);
+//     });
+//   }
+// }
+// api.clearToken = () => {
+//   api.interceptors.request.use( async (config) => {
+//       config.headers.Authorization = ''
+//       return config
+//   }, function(error) {
+//       return Promise.reject(error);
+//   });
+// }
 
-          case 2:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    });
-  }, function (error) {
-    return _promise["default"].reject(error);
-  });
-};
 
 module.exports = api;
 

@@ -62,7 +62,7 @@ class Login extends Component  {
                 {!this.state.loading && 
                     <>
                         <div className="d-flex flex-column">
-                            <StaticName title="HARNESS THE POWER OF BIG DATA" style={{fontSize: 10, fontWeight: '600', color:'rgba(0,0,0,0.5)'}}/>
+                            <StaticName title="DISCOVER YOUR DATA ANYWHRER ANYTIME" style={{fontSize: 10, fontWeight: '600', color:'rgba(0,0,0,0.5)'}}/>
                             <StaticName title="Login your account" style={{fontSize: 18, fontWeight: '600', color:'rgba(0,0,0,1)', marginTop: 8, marginBottom:10}}/>
                         </div>
 

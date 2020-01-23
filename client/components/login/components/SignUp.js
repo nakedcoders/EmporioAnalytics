@@ -51,7 +51,7 @@ class SignUp extends Component  {
             <div style={{flex: 1}}>
 
                 <div className="d-flex flex-column">
-                    <StaticName title="DISCOVERING THE NEW TREND IN YOUR SHOPPERS" style={{fontSize: 10, fontWeight: '600', color:'rgba(0,0,0,0.5)'}}/>
+                    <StaticName title="DISCOVERING THE NEW TREND IN YOUR SHOPPERS ANYWHERE ANYTIME" style={{fontSize: 10, fontWeight: '600', color:'rgba(0,0,0,0.5)'}}/>
                     <StaticName title="Sign up for account" style={{fontSize: 18, fontWeight: '600', color:'rgba(0,0,0,1)', marginTop: 8, marginBottom:10}}/>
                 </div>
 

@@ -21,13 +21,13 @@ class Index extends Component{
 
         return(
             
-            <div style={{flex: 1, display:"flex", height:'100vh'}}>
+            <div className="parent" style={{flex: 1, display:"flex", height:'100vh'}}>
             
-                <div style={{flex:1}}>
+                <div className="login" style={{flex:1}}>
                     <Login/>
                 </div>
 
-                <div className="Screen" style={{flex:1}}>
+                <div className="screen" style={{flex:1}}>
                     <Screen/>
                 </div>
 
@@ -59,3 +59,5 @@ const mapStateToProps = state => {
 }
   
 export default connect(mapStateToProps)(Index)
+
+// export { Index };

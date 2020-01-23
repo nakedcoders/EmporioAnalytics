@@ -105,8 +105,6 @@ module.exports =
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
 
-var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "./node_modules/@babel/runtime-corejs2/core-js/promise.js"));
-
 var _axios = _interopRequireDefault(__webpack_require__(/*! axios */ "axios"));
 
 let api = _axios.default.create({
@@ -119,23 +117,31 @@ let api = _axios.default.create({
 
 api.AuthorizationHeader = token => {
   if (token) {
-    api.interceptors.request.use(async config => {
-      config.headers.Authorization = `Bearer ${token}`;
-      return config;
-    }, function (error) {
-      return _promise.default.reject(error);
-    });
+    api.defaults.headers["Authorization"] = `Bearer ${token}`;
   }
 };
 
 api.clearToken = () => {
-  api.interceptors.request.use(async config => {
-    config.headers.Authorization = '';
-    return config;
-  }, function (error) {
-    return _promise.default.reject(error);
-  });
-};
+  delete api.defaults.headers["Authorization"];
+}; // api.AuthorizationHeader = (token) => {
+//   if(token){
+//     api.interceptors.request.use( async (config) => {
+//         config.headers.Authorization = `Bearer ${token}`
+//         return config
+//     }, function(error) {
+//         return Promise.reject(error);
+//     });
+//   }
+// }
+// api.clearToken = () => {
+//   api.interceptors.request.use( async (config) => {
+//       config.headers.Authorization = ''
+//       return config
+//   }, function(error) {
+//       return Promise.reject(error);
+//   });
+// }
+
 
 module.exports = api;
 
